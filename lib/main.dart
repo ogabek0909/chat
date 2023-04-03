@@ -1,5 +1,5 @@
 import 'package:chat/screens/auth_screen.dart';
-import 'package:chat/screens/homescreen.dart';
+import 'package:chat/screens/chat_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,12 +34,13 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
         stream: FirebaseAuth.instance.userChanges(),
         builder: (context, snapshot) {
-          if(snapshot.hasData){
-            return HomeScreen();
-          }else {
+          if (snapshot.hasData) {
+            return ChatScreen();
+          } else {
             return AuthScreen();
           }
-        },),
+        },
+      ),
     );
   }
 }
